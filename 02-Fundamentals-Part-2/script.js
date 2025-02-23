@@ -64,3 +64,23 @@ function fruitProcessor2(apple, orange) {
 }
 
 console.log(fruitProcessor2(2, 4));
+
+// ----- Exercise - Arrow Function
+const calcAge4 = (birthYear) => 2024 - birthYear;
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  // const age = 2024 - birthYear;
+  const age = calcAge4(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(`${firstName} retires in ${retirement} years`);
+    return retirement;
+  } else {
+    console.log(`${firstName} has already retired 🎉`);
+    return -1;
+  }
+};
+
+console.log(yearsUntilRetirement(1990, 'Anil'));
+console.log(yearsUntilRetirement(1991, 'Manoj'));
