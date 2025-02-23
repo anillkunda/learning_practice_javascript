@@ -284,3 +284,30 @@ for (let i = 0; i < yearsArray.length; i++) {
   agesArray.push(2025 - yearsArray[i]);
 }
 console.log(agesArray);
+
+// ----- Looping Backwards and loops within loops.
+
+const anil2 = [
+  'Anil',
+  'Kunda',
+  2024 - 2002,
+  'Developer',
+  ['Manoj', 'Gagan', 'Mallesh'],
+];
+
+// 0, 1, ...., 4
+// 4, 3, ...., 0
+
+for (let i = anil2.length - 1; i >= 0; i--) {
+  console.log(i, anil2[i]);
+}
+
+// ----- Loops in Loops
+
+for (let exercise = 1; exercise < 3; exercise++) {
+  console.log(`--Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`);
+  }
+}
