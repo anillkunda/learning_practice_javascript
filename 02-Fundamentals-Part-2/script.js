@@ -45,10 +45,10 @@ console.log(fruitProcessor(5, 0));
 
 // Parameter : It's a variable in a function definition. it's a placeholder for value that will be provided when the function is called.
 
-// Argumant : It's the actual value that is passed to the function when calling it. These value are assigned to the function's parameters.
+// Argument : It's the actual value that is passed to the function when calling it. These value are assigned to the function's parameters.
 
 // Return : The return statement stops the execution of a function and return a value.
-// The return statemets makes the function reusable you can use the some function in multiple places.
+// The return statements makes the function reusable you can use the some function in multiple places.
 
 // ----- Function Calling Other Function
 function cutFruitPieces(fruit) {
@@ -84,6 +84,29 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 console.log(yearsUntilRetirement(1990, 'Anil'));
 console.log(yearsUntilRetirement(1991, 'Manoj'));
+
+// ----- ** Exercise - 1
+
+const clacAverage = (a, b, c) => (a + b + c) / 3;
+console.log(clacAverage(3, 4, 5));
+
+let scoreDolphins = clacAverage(44, 23, 71);
+let scoreKoalas = clacAverage(65, 54, 49);
+console.log(scoreDolphins, scoreKoalas);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Dolphins win 🏆 (${avgDolphins} vs. ${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Dolphins win 🏆 (${avgKoalas} vs. ${avgDolphins})`);
+  } else {
+    console.log('No team wins...');
+  }
+};
+
+checkWinner(scoreDolphins, scoreKoalas);
+
+checkWinner(576, 111);
 
 // ------- ** Arrays
 
@@ -145,6 +168,20 @@ console.log(friends.indexOf('Gagan'));
 console.log(friends.indexOf('Mallesh'));
 console.log(friends.includes('Gagan'));
 console.log(friends.includes('Pradeep'));
+
+// ----- ** Exercise - 2
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+// const calcTip = (bill) => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+console.log(bills, tips, totals);
 
 // ------- ** Objects
 
@@ -216,6 +253,41 @@ console.log(gagan.age);
 console.log(gagan.age);
 
 console.log(gagan.getSummary());
+
+// ----- ** Exercise - 3
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`
+  );
+}
 
 // ------- ** Loops
 
@@ -332,3 +404,21 @@ while (dice !== 6) {
   dice = Math.trunc(Math.random() * 6) + 1;
   if (dice === 6) console.log('Loop is about to end...');
 }
+
+// ----- ** Exercise - 4
+
+const calcTip2 = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips2 = [];
+const totals2 = [];
+
+for (let i = 0; i < bills2.length; i++) {
+  const tip = calcTip2(bills2[i]);
+  tips2.push(tip);
+  totals2.push(tip + bills2[i]);
+}
+
+console.log(bills2, tips2, totals2);
