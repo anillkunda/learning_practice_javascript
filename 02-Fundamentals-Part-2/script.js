@@ -145,3 +145,74 @@ console.log(friends.indexOf('Gagan'));
 console.log(friends.indexOf('Mallesh'));
 console.log(friends.includes('Gagan'));
 console.log(friends.includes('Pradeep'));
+
+// ------- ** Objects
+
+// --- Objects in JavaScript are data structures that store collections of key-value pairs.
+
+const manoj = {
+  firstName: 'Manoj',
+  lastName: 'Gowda',
+  age: 2024 - 2003,
+  job: 'Developer',
+  friends: ['Anil', 'Gagan', 'Mallesh'],
+};
+
+console.log(manoj);
+
+// Dot Notation .
+console.log(manoj.firstName);
+console.log(manoj.lastName);
+console.log(manoj.age);
+
+// Bracket Notation []
+console.log(manoj['firstName']);
+console.log(manoj['lastName']);
+console.log(manoj['age']);
+
+const namekey = 'Name';
+console.log(manoj['first' + namekey]);
+console.log(manoj['last' + namekey]);
+
+console.log(
+  `${manoj.firstName} has ${manoj.friends.length} friends, and his best friends in called ${manoj.friends[0]}`
+);
+
+// ----- Basic Object Methods
+
+const gagan = {
+  firstName: 'Gagan',
+  lastName: 'Gowda',
+  birthYear: 2003,
+  job: 'Developer',
+  friends: ['Manoj', 'Anil', 'Mallesh'],
+  hasDriversLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2024 - birthYear;
+  // },
+
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2024 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2024 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()} -years old ${
+      gagan.job
+    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} drive's license.`;
+  },
+};
+
+console.log(gagan.calcAge());
+
+console.log(gagan.age);
+console.log(gagan.age);
+console.log(gagan.age);
+
+console.log(gagan.getSummary());
